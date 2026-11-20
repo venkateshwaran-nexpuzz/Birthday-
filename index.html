@@ -182,6 +182,28 @@ const revealObserver=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
+<div class="music-player">
+  <button id="musicBtn">🎵 Play Birthday Song</button>
+  <audio id="birthdaySong" loop>
+    <source src="hema-birthday-song.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+  const song = document.getElementById("birthdaySong");
+  const btn = document.getElementById("musicBtn");
+
+  btn.addEventListener("click", () => {
+    if (song.paused) {
+      song.play();
+      btn.textContent = "⏸ Pause Song";
+    } else {
+      song.pause();
+      btn.textContent = "🎵 Play Birthday Song";
+    }
+  });
+</script>
+ 
 </script>
 </body>
 </html>
